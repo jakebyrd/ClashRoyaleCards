@@ -9,9 +9,10 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class AppComponent{
 
-  readonly rootURL = 'http://www.clashapi.xyz/api/cards' 
+  readonly cardURL = 'http://www.clashapi.xyz/api/cards'
   cardList: any;
   card: any;
+  elixirCount = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   constructor(private http: HttpClient){
   }
 
@@ -22,12 +23,21 @@ export class AppComponent{
         'Access-Control-Allow-Origin':"*"
       })
     }
-    this.http.get(this.rootURL).subscribe(card => {
+    this.http.get(this.cardURL).subscribe(card => {
       this.cardList = card;
       console.log(this.cardList);
     });
-    // for (card in cardList)
-    //   if(card.cardName == typedName)
+    }
+    // getRequestedElixir(){
+
+    // }
+    // getCardData(){
+    // this.cardList.forEach(function(value){
+    //     console.log(value);
+    //   }};
+
+    afterSubmit(elixir){
+
     }
   title = 'app';
 }

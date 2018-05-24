@@ -4,7 +4,7 @@ import { Http, Headers, Response } from '@angular/http'
 @Injectable({
   providedIn: 'root'
 })
-export class FightersServiceService {
+export class CardsServiceService {
 
   constructor(private http: Http) { }
 
