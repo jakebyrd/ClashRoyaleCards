@@ -27,6 +27,7 @@ export class AppComponent {
     this.getCards()
   }
 
+  // This function gets all the cards from the clash royale url page
   getCards(){
     let options = {
       headers:new HttpHeaders({
@@ -40,6 +41,7 @@ export class AppComponent {
     });
   }
 
+  // This function gets all the card data we need and push it to a new array
   getCardData(elixir){
     this.cardList.forEach(card=>{
       if(card.elixirCost == elixir){
@@ -51,7 +53,9 @@ export class AppComponent {
       }
     });
   }
+
+  // this function calls the getCardData function for when someone submits from the form
   onSubmit(){
-    this.getCardData(this.form.value.elixirValue)
+    this.getCardData(this.form.value.elixirValue);
   }
 }
