@@ -15,16 +15,16 @@ export class AppComponent {
   card: any;
   elixirCount = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
   elixir: any;
-
-  constructor(private http: HttpClient){
-  }
-
   form;
-  ngOnInIt(){
+  elixirCardList = [];
+
+  constructor(private http: HttpClient){  
     this.form = new FormGroup({
-      retailer: new FormControl(),
-      elixir: new FormControl()    
-   })
+    elixirValue: new FormControl()    
+    })
+  }
+  ngOnInit(){
+    this.getCards()
   }
 
   getCards(){
@@ -38,17 +38,20 @@ export class AppComponent {
       this.cardList = card;
       console.log(this.cardList);
     });
-    this.getCardData(this.elixir)
   }
 
   getCardData(elixir){
-    this.cardList.forEach(function(card){
-    if(card.elixirCost == elixir)
-      console.log(card);
+    this.cardList.forEach(card=>{
+      if(card.elixirCost == elixir){
+        this.elixirCardList.push(card.name);
+        this.elixirCardList.push(card.rarity);
+        this.elixirCardList.push(card.type);
+        this.elixirCardList.push(card.description);
+        console.log(this.elixirCardList);
+      }
     });
   }
   onSubmit(){
-    this.getCards()
-    this.getCardData(this.elixir)
+    this.getCardData(this.form.value.elixirValue)
   }
 }

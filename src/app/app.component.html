@@ -16,19 +16,19 @@
 
 
 <!--Form -->
-<form class="form-horizontal">
+<form class="form-horizontal" [formGroup] = "form">
   <fieldset> 
     <div class="form-group">
       <label class="col-md-4 control-label" for="elixirCount">Amount of Elixir</label>
       <div class=" form-group col-md-4">
-        <select class=form-control formControlName="number" name="number">
+        <select class=form-control formControlName="elixirValue" name="number">
           <option value="null" disabled selected>Select Elixir Count</option>
           <option *ngFor="let elixir of elixirCount" value={{elixir}}>{{elixir}}</option>
         </select>
       <br>
         <label class="col-md-4 control-label" for="singlebutton"></label>
           <div class="col-md-4">
-            <button type="button" name="elixir" (click)="onSubmit()" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button>
+            <button type="button" id="submit" (click)="onSubmit()" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
           </div>
       </div>        
     </div>
@@ -37,18 +37,22 @@
 
 
 <!-- Modal -->
-<div class="modal fade-in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Cards with Elixir</h5>
+        <h5 class="modal-title">Cards with {{this.form.value.elixirValue}} Elixir</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class = "cards">
           <div class = "row">
             <div class = "col-md-6">
-
+              <div class = "row">
+                <div class = "col-7">
+                  <h4></h4>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -61,6 +65,14 @@
 </div>
 
 </div>
+
+<script>
+  $(document).ready(function(){
+    $("#submit").click(function(){
+      $("#myModal").modal();
+    });
+  });
+</script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
