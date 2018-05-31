@@ -11,7 +11,7 @@ import { ElixirList } from './elixir-list';
 })
 export class AppComponent {
 
-  readonly cardURL = 'http://www.clashapi.xyz/api/cards'
+  readonly cardURL = 'https://www.clashapi.xyz/api/cards'
   cardList: any;
   card: any;
   elixirCount = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
