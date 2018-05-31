@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ElixirList } from './elixir-list';
 
 @Component({
   selector: 'app-root',
@@ -41,21 +42,24 @@ export class AppComponent {
     });
   }
 
-  // This function gets all the card data we need and push it to a new array
-  getCardData(elixir){
+  // // This function gets all the card data we need and push it to a new array
+  populateCardData(elixir){
+    this.elixirCardList = new Array<ElixirList>();
     this.cardList.forEach(card=>{
       if(card.elixirCost == elixir){
-        this.elixirCardList.push(card.name);
-        this.elixirCardList.push(card.rarity);
-        this.elixirCardList.push(card.type);
-        this.elixirCardList.push(card.description);
-        console.log(this.elixirCardList);
-      }
+        let cardList = new ElixirList;
+        cardList.card_name = card.card_name;
+        cardList.card_rarity = card.card_rarity;
+        cardList.card_type = card.card_type;
+        cardList.card_description = card.card_description;
+
+        this.elixirCardList.push(card);
+        }
     });
   }
 
   // this function calls the getCardData function for when someone submits from the form
   onSubmit(){
-    this.getCardData(this.form.value.elixirValue);
+    this.populateCardData(this.form.value.elixirValue);
   }
 }
