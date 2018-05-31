@@ -76,7 +76,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var AppComponent = /** @class */ (function () {
     function AppComponent(http) {
         this.http = http;
-        this.cardURL = 'http://www.clashapi.xyz/api/cards';
+        this.cardURL = 'https://www.clashapi.xyz/api/cards';
         this.elixirCount = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
         this.elixirCardList = [];
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
