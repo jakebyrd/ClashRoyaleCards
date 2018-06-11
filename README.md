@@ -10,4 +10,5 @@ This app generates through a clash royale api and gets the stats of each card fo
 
 To visit this go to https://jakebyrd.github.io/ClashRoyaleCards/
 
+Site is ran best off of incognito browser
 
