@@ -48,12 +48,17 @@ export class AppComponent {
     this.cardList.forEach(card=>{
       if(card.elixirCost == elixir){
         let cardList = new ElixirList;
+        console.log(cardList);
         cardList.card_name = card.card_name;
+        console.log(cardList.card_name);
         cardList.card_rarity = card.card_rarity;
+        console.log(cardList.card_rarity);
         cardList.card_type = card.card_type;
+        console.log(cardList.card_type);
         cardList.card_description = card.card_description;
-
+        console.log(cardList.card_description);
         this.elixirCardList.push(card);
+        console.log(this.elixirCardList);
         }
     });
   }
